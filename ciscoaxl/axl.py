@@ -1913,6 +1913,7 @@ class axl(object):
         em_url_button_index="1",
         em_url_label="Press here to logon",
         ehook_enable=1,
+        associate_userid="",
     ):
         """
         lines takes a list of Tuples with properties for each line EG:
@@ -1942,6 +1943,7 @@ class axl(object):
         :param em_url_button_index:
         :param em_url_label:
         :param ehook_enable:
+        :param associate_userid:
         :return:
         """
 
@@ -1970,6 +1972,7 @@ class axl(object):
             "lines": {"line": []},
             "services": {"service": []},
             "vendorConfig": [{"ehookEnable": ehook_enable}],
+            "ownerUserName": associate_userid,
         }
 
         if lines:
@@ -2150,6 +2153,7 @@ class axl(object):
         except Fault as e:
             return e
 
+
     def delete_device_profile(self, **args):
         """
         Delete a device profile
@@ -2225,6 +2229,7 @@ class axl(object):
         firstName,
         presenceGroupName="Standard Presence group",
         phoneProfiles=[],
+        associatedDevices="",
     ):
         """
         Add a user
@@ -2242,6 +2247,7 @@ class axl(object):
                     "firstName": firstName,
                     "presenceGroupName": presenceGroupName,
                     "phoneProfiles": phoneProfiles,
+                    "associatedDevices": associatedDevices,
                 }
             )
         except Fault as e:
